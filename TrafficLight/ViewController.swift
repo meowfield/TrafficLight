@@ -8,24 +8,30 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    private let lightIsOffState = 0.3
-    private let lightIsOnState = 1.0
-    private var currentLight: TrafficLight = .green
+    
+    // MARK: - Enums
     enum TrafficLight {
     case red, yellow, green
     }
     
+    // MARK: - Properties
+    private let lightIsOffState = 0.3
+    private let lightIsOnState = 1.0
+    private var currentLight: TrafficLight = .green
+    
+    // MARK: - IB Outlets
     @IBOutlet var redTrafficLight: UIView!
     @IBOutlet var yellowTrafficLight: UIView!
     @IBOutlet var greenTrafficLight: UIView!
     @IBOutlet var actionButton: UIButton!
-        
+  
+    // MARK: - IBActions
     @IBAction func actionButtonDidTapped(_ sender: UIButton) {
         actionButton.setTitle("Next", for: .normal)
         changeTrafficLightState()
     }
-    
+   
+    // MARK: - Public Methods
     func changeTrafficLightState() {
         switch currentLight {
         case .red:
